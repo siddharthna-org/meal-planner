@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "check": "deno check index.ts index_test.ts",
+    "test": "deno test --allow-env index_test.ts"
+  },
+  "imports": {
+    "@supabase/server": "npm:@supabase/server@^1"
+  }
+}

@@ -1,16 +1,36 @@
-<template>
-  <nav class="navbar navbar-expand-md bg-body-tertiary border-bottom">
-    <div class="container-md">
-      <RouterLink class="navbar-brand fw-semibold" to="/">Vue Boilerplate</RouterLink>
-      <div class="navbar-nav flex-row gap-1">
-        <RouterLink class="btn px-3" to="/">Home</RouterLink>
-        <RouterLink class="btn px-3" to="/about">About</RouterLink>
-      </div>
-    </div>
-  </nav>
-  <div class="container-md py-4">
-    <RouterView />
-  </div>
-</template>
+<script setup>
+import { Utensils } from "@lucide/vue";
+import { Button } from "@/components/ui/button";
+</script>
 
-<style scoped></style>
+<template>
+  <header class="border-b bg-card">
+    <div
+      class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-5 py-4 sm:px-8"
+    >
+      <RouterLink to="/" class="flex items-center gap-2 font-semibold">
+        <Utensils class="size-5 text-primary" aria-hidden="true" />
+        Meal Planner
+      </RouterLink>
+      <nav aria-label="Main navigation" class="flex gap-1">
+        <Button as-child variant="ghost">
+          <RouterLink
+            to="/"
+            exact-active-class="bg-accent text-accent-foreground"
+            >Home</RouterLink
+          >
+        </Button>
+        <Button as-child variant="ghost">
+          <RouterLink
+            to="/about"
+            exact-active-class="bg-accent text-accent-foreground"
+            >About</RouterLink
+          >
+        </Button>
+      </nav>
+    </div>
+  </header>
+  <main class="mx-auto max-w-5xl px-5 py-10 sm:px-8 sm:py-14">
+    <RouterView />
+  </main>
+</template>
